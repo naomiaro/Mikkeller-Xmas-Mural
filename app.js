@@ -434,9 +434,7 @@
         }
 
         if (item.data.dynamicImage) {
-          var imagesInserted = imageMedia.loadImages(item.el).then(function() {
-            scrollStory.updateOffsets();
-          });
+          var imagesInserted = imageMedia.loadImages(item.el);
           returnPromises.push(imagesInserted);
         }
 
@@ -501,6 +499,7 @@
             muted: !isSoundEnabled
           });
         }
+        document.activeElement.blur();
       });
       $story.on("itemblur", function(ev, item) {
         if (item.data.image) {
@@ -4848,7 +4847,6 @@
 
                   if (autoAdvance && status === YT.PlayerState.ENDED) {
                     scrollStory.index(id + 1);
-                    document.activeElement.blur();
                   }
                 }
               }
