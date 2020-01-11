@@ -595,12 +595,39 @@
       }
 
       Promise.all(LOAD_PROMISES)
-        .then(function() {
-          var overlay = document.getElementById("loading_overlay");
-          document.body.removeChild(overlay);
-          document.body.classList.remove("frozen");
+        .then(() => {
+          let overlay = document.getElementById("loading_overlay");
+          let playStart = document.getElementById("play_start");
+          playStart.style.display = "block";
+
+          playStart.addEventListener("click", () => {
+            document.body.removeChild(overlay);
+            document.body.classList.remove("frozen");
+
+            if (active.data.video) {
+              videoMedia.playBackgroundVideo(
+                active.index,
+                getVideoAttrs(active)
+              );
+              videoMedia.fixBackgroundVideo(active.el);
+            }
+
+            if (active.data.audio) {
+              audioMedia.playBackgroundAudio(active.index, {
+                muted: !isSoundEnabled
+              });
+            }
+
+            if (active.data.youtubeId) {
+              youtubeMedia.play(active, isSoundEnabled);
+              youtubeMedia.stick(active);
+            }
+
+            overlay = null;
+            playStart = null;
+          });
         })
-        .catch(function(e) {
+        .catch(e => {
           console.error(e);
         });
 
