@@ -60,9 +60,15 @@
       }
     </style>
     <link rel="stylesheet" type="text/css" href="app.min.css" />
+    <style>
+      button:focus {
+        outline: 1px solid #fff;
+        outline-offset: -4px;
+      }
+    </style>
 
     <script type="text/javascript">
-      !(function(a) {
+      !(function (a) {
         var b = /iPhone/i,
           c = /iPod/i,
           d = /iPad/i,
@@ -78,10 +84,10 @@
           n = /(CriOS|Chrome)(?=.*\bMobile\b)/i,
           o = /(?=.*\bFirefox\b)(?=.*\bMobile\b)/i,
           p = new RegExp("(?:Nexus 7|BNTV250|Kindle Fire|Silk|GT-P1000)", "i"),
-          q = function(a, b) {
+          q = function (a, b) {
             return a.test(b);
           },
-          r = function(a) {
+          r = function (a) {
             var r = a || navigator.userAgent,
               s = r.split("[FBAN");
             if (
@@ -92,22 +98,22 @@
                 phone: q(b, r),
                 ipod: q(c, r),
                 tablet: !q(b, r) && q(d, r),
-                device: q(b, r) || q(c, r) || q(d, r)
+                device: q(b, r) || q(c, r) || q(d, r),
               }),
               (this.amazon = {
                 phone: q(g, r),
                 tablet: !q(g, r) && q(h, r),
-                device: q(g, r) || q(h, r)
+                device: q(g, r) || q(h, r),
               }),
               (this.android = {
                 phone: q(g, r) || q(e, r),
                 tablet: !q(g, r) && !q(e, r) && (q(h, r) || q(f, r)),
-                device: q(g, r) || q(h, r) || q(e, r) || q(f, r)
+                device: q(g, r) || q(h, r) || q(e, r) || q(f, r),
               }),
               (this.windows = {
                 phone: q(i, r),
                 tablet: q(j, r),
-                device: q(i, r) || q(j, r)
+                device: q(i, r) || q(j, r),
               }),
               (this.other = {
                 blackberry: q(k, r),
@@ -115,7 +121,7 @@
                 opera: q(m, r),
                 firefox: q(o, r),
                 chrome: q(n, r),
-                device: q(k, r) || q(l, r) || q(m, r) || q(o, r) || q(n, r)
+                device: q(k, r) || q(l, r) || q(m, r) || q(o, r) || q(n, r),
               }),
               (this.seven_inch = q(p, r)),
               (this.any =
@@ -134,7 +140,7 @@
             )
               return this;
           },
-          s = function() {
+          s = function () {
             var a = new r();
             return (a.Class = r), a;
           };
@@ -166,29 +172,12 @@
     </script>
   </head>
 
-  <body class="longform frozen" name="top">
-    <div
-      id="loading_overlay"
-      class="loading"
-      style="background-image:url('https://stories.getmural.io/mikkeller-christmas-calendar-2019/mikkeller_xmas_calendar_2019_1024_x_1024.jpg');background-position:center center;background-size:cover;"
-    >
-      <div class="opacity-pane"></div>
-      <h3 class="story-name">THE GREAT MIKKELLER X-MAS CALENDAR (2019)</h3>
-      <img src="img/logo.svg" alt="Mural is Loading..." class="logo" />
-      <div
-        id="play_start"
-        class="play-start animated bounce"
-        style="display: none; color:white;background-color: #A10400;font-family: Mikkelwind; font-size: 20px;height: 50px;line-height:50px; padding: 0 1rem;border-radius: 10px;display: table-cell; vertical-align: middle;"
-      >
-        Click for Beer
-      </div>
-    </div>
-
+  <body class="longform" name="top">
     <span class="mute">Mute</span>
     <div class="menu_open">
       <div
         class="sticks_wrapper"
-        style="font-family:Mikkelwind;font-size:25px;"
+        style="font-family: Mikkelwind; font-size: 25px"
       >
         <div class="stick -first" id="stick1"></div>
         <div class="-second" id="stick2">BEER&nbsp;LIST</div>
@@ -228,29 +217,43 @@
     </div>
     <article id="scrollytelling">
       <section
-        class="no-effects part text_align-center "
+        class="no-effects part text_align-center"
         name="story0"
         data-dynamic-image="true"
       >
         <div class="content container-fluid">
           <div class="row">
-            <div class="col-sm-12 header"></div>
+            <div class="col-sm-12 header">
+              <h1 class="story-name">
+                THE GREAT MIKKELLER X-MAS CALENDAR (2019)
+              </h1>
+            </div>
           </div>
           <div class="row">
             <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 text">
-              <p style="color:goldenrod">
+              <p style="color: goldenrod" class="text-center">
                 SCROLL DOWN or use ARROW KEYS to join the adventure !
               </p>
-              <p><br /></p>
-              <p>
-                Mikkel and Søren had 3 hours to test the Mikkeller Christmas
-                Calendar. That's 24 beers each + surprises.
+              <p class="text-center">
+                <button
+                  id="play_start"
+                  class="play-start animated bounce"
+                  type="button"
+                  style="
+                    color: white;
+                    background-color: #a10400;
+                    font-family: Mikkelwind;
+                    font-size: 20px;
+                    height: 50px;
+                    line-height: 50px;
+                    padding: 0 1rem;
+                    border-radius: 10px;
+                    border: 0;
+                  "
+                >
+                  Enable video autoplay
+                </button>
               </p>
-              <p>
-                This is the result. Hope you enjoy it just as much as they do.
-              </p>
-              <p><br /></p>
-              <p>Merry christmas! 🎁</p>
               <p><br /></p>
               <figure class="cms-image center">
                 <img
@@ -264,12 +267,22 @@
                   <span class="photographer"> </span>
                 </figcaption>
               </figure>
+              <p><br /></p>
+              <p>
+                Mikkel and Søren had 3 hours to test the Mikkeller Christmas
+                Calendar. That's 24 beers each + surprises.
+              </p>
+              <p>
+                This is the result. Hope you enjoy it just as much as they do.
+              </p>
+              <p><br /></p>
+              <p>Merry christmas! 🎁</p>
             </div>
           </div>
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story1"
       >
         <div class="content container-fluid">
@@ -289,7 +302,7 @@
                 width="600"
                 height="450"
                 frameborder="0"
-                style="border:0;"
+                style="border: 0"
                 allowfullscreen=""
               ></iframe>
             </div>
@@ -308,7 +321,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story3"
         data-dynamic-image="true"
       >
@@ -351,7 +364,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story5"
         data-dynamic-image="true"
       >
@@ -373,9 +386,7 @@
                 />
                 <figcaption>
                   Mikkeller X Boon Gout American
-                  <span class="photographer">
-                    shop.mikkeller.dk
-                  </span>
+                  <span class="photographer"> shop.mikkeller.dk </span>
                 </figcaption>
               </figure>
               <p>Limited Edition Oude Geuze</p>
@@ -408,7 +419,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story7"
         data-dynamic-image="true"
       >
@@ -451,7 +462,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story9"
         data-dynamic-image="true"
       >
@@ -494,7 +505,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story11"
         data-dynamic-image="true"
       >
@@ -516,9 +527,7 @@
                 />
                 <figcaption>
                   Organic German Style Pilsner
-                  <span class="photographer">
-                    mikkeller.dk
-                  </span>
+                  <span class="photographer"> mikkeller.dk </span>
                 </figcaption>
               </figure>
               <p>Fresh Organic German-style pilsner.</p>
@@ -550,7 +559,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story13"
         data-dynamic-image="true"
       >
@@ -572,9 +581,7 @@
                 />
                 <figcaption>
                   Vanilla Maple Shake
-                  <span class="photographer">
-                    mikkeller.dk
-                  </span>
+                  <span class="photographer"> mikkeller.dk </span>
                 </figcaption>
               </figure>
               <p>
@@ -608,7 +615,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story15"
         data-dynamic-image="true"
       >
@@ -630,9 +637,7 @@
                 />
                 <figcaption>
                   Cherry Trippelbock
-                  <span class="photographer">
-                    shop.mikkeller.dk
-                  </span>
+                  <span class="photographer"> shop.mikkeller.dk </span>
                 </figcaption>
               </figure>
               New Mikkeller Bock beers made from Frederiksdal Stevns Cherries
@@ -652,7 +657,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story17"
         data-dynamic-image="true"
       >
@@ -674,9 +679,7 @@
                 />
                 <figcaption>
                   Blow Out
-                  <span class="photographer">
-                    shop.mikkeller.dk
-                  </span>
+                  <span class="photographer"> shop.mikkeller.dk </span>
                 </figcaption>
               </figure>
               <p>
@@ -708,7 +711,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story19"
         data-dynamic-image="true"
       >
@@ -751,7 +754,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story21"
         data-dynamic-image="true"
       >
@@ -794,7 +797,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story23"
         data-dynamic-image="true"
       >
@@ -816,9 +819,7 @@
                 />
                 <figcaption>
                   K:rlek 15 -Höst/Vinter 2019
-                  <span class="photographer">
-                    shop.mikkeller.dk
-                  </span>
+                  <span class="photographer"> shop.mikkeller.dk </span>
                 </figcaption>
               </figure>
               <p>Pale ale brewed for the autumn and winter of 2019!</p>
@@ -849,7 +850,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story25"
         data-dynamic-image="true"
       >
@@ -871,9 +872,7 @@
                 />
                 <figcaption>
                   Beer Geek Fudgesicle
-                  <span class="photographer">
-                    mikkeller.dk
-                  </span>
+                  <span class="photographer"> mikkeller.dk </span>
                 </figcaption>
               </figure>
             </div>
@@ -892,7 +891,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story27"
         data-dynamic-image="true"
       >
@@ -914,9 +913,7 @@
                 />
                 <figcaption>
                   Milk Stout
-                  <span class="photographer">
-                    shop.mikkeller.dk
-                  </span>
+                  <span class="photographer"> shop.mikkeller.dk </span>
                 </figcaption>
               </figure>
               <p>
@@ -929,7 +926,7 @@
               </p>
               <br />
               <p>
-                <u style="color:red"
+                <u style="color: red"
                   >Warning! If you are lactose intolerant - don't drink this!</u
                 >
               </p>
@@ -953,7 +950,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story29"
         data-dynamic-image="true"
       >
@@ -975,9 +972,7 @@
                 />
                 <figcaption>
                   Awful Gato
-                  <span class="photographer">
-                    shop.mikkeller.dk
-                  </span>
+                  <span class="photographer"> shop.mikkeller.dk </span>
                 </figcaption>
               </figure>
               Brewed &amp; bottled by Mikkeller at De Proef
@@ -997,7 +992,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story31"
         data-dynamic-image="true"
       >
@@ -1019,9 +1014,7 @@
                 />
                 <figcaption>
                   Beer Geek Brunch
-                  <span class="photographer">
-                    mikkeller.dk
-                  </span>
+                  <span class="photographer"> mikkeller.dk </span>
                 </figcaption>
               </figure>
             </div>
@@ -1040,7 +1033,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story33"
         data-dynamic-image="true"
       >
@@ -1062,9 +1055,7 @@
                 />
                 <figcaption>
                   Beer Geek Dessert
-                  <span class="photographer">
-                    shop.mikkeller.dk
-                  </span>
+                  <span class="photographer"> shop.mikkeller.dk </span>
                 </figcaption>
               </figure>
               <p>Oatmeal stout brewed with cocoa and vanilla.</p>
@@ -1084,7 +1075,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story35"
         data-dynamic-image="true"
       >
@@ -1106,9 +1097,7 @@
                 />
                 <figcaption>
                   Citra - Single Hop Series
-                  <span class="photographer">
-                    shop.mikkeller.dk
-                  </span>
+                  <span class="photographer"> shop.mikkeller.dk </span>
                 </figcaption>
               </figure>
               <p>Brewed by Mikkeller at De Proef</p>
@@ -1128,7 +1117,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story37"
         data-dynamic-image="true"
       >
@@ -1150,9 +1139,7 @@
                 />
                 <figcaption>
                   Spontandryhop Centennial
-                  <span class="photographer">
-                    mikkeller.dk
-                  </span>
+                  <span class="photographer"> mikkeller.dk </span>
                 </figcaption>
               </figure>
             </div>
@@ -1171,7 +1158,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story39"
         data-dynamic-image="true"
       >
@@ -1193,9 +1180,7 @@
                 />
                 <figcaption>
                   Limbo Raspberry
-                  <span class="photographer">
-                    shop.mikkeller.dk
-                  </span>
+                  <span class="photographer"> shop.mikkeller.dk </span>
                 </figcaption>
               </figure>
               <p>
@@ -1221,7 +1206,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story41"
         data-dynamic-image="true"
       >
@@ -1243,9 +1228,7 @@
                 />
                 <figcaption>
                   Sake Bomb
-                  <span class="photographer">
-                    shop.mikkeller.dk
-                  </span>
+                  <span class="photographer"> shop.mikkeller.dk </span>
                 </figcaption>
               </figure>
               <p>Brewed by Mikkeller at D'proef brewery in Belgium</p>
@@ -1265,7 +1248,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story43"
         data-dynamic-image="true"
       >
@@ -1287,9 +1270,7 @@
                 />
                 <figcaption>
                   Sour Scandinavian Spontan Seabuckthorn
-                  <span class="photographer">
-                    shop.mikkeller.dk
-                  </span>
+                  <span class="photographer"> shop.mikkeller.dk </span>
                 </figcaption>
               </figure>
               <p>Spontaneously fermented and aged in oak foeders!</p>
@@ -1311,7 +1292,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story45"
         data-dynamic-image="true"
       >
@@ -1342,7 +1323,16 @@
                 Here is the brand new vintage of our NEIPA with&nbsp;<a
                   class="notranslate"
                   href="https://www.instagram.com/weingutmeierer/"
-                  style="margin: 0px; padding: 0px; border: 0px; font-variant-numeric: inherit; font-variant-east-asian: inherit; font-stretch: inherit; line-height: inherit; vertical-align: baseline;"
+                  style="
+                    margin: 0px;
+                    padding: 0px;
+                    border: 0px;
+                    font-variant-numeric: inherit;
+                    font-variant-east-asian: inherit;
+                    font-stretch: inherit;
+                    line-height: inherit;
+                    vertical-align: baseline;
+                  "
                   >@weingutmeierer</a
                 >'s delicious Riesling juice.⁠<br />⁠<br />Citrus on the nose,
                 and striking a fine balance between fresh and tart notes, when
@@ -1365,7 +1355,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story47"
         data-dynamic-image="true"
       >
@@ -1412,7 +1402,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story49"
         data-dynamic-image="true"
       >
@@ -1434,9 +1424,7 @@
                 />
                 <figcaption>
                   Guavaja
-                  <span class="photographer">
-                    shop.mikkeller.dk
-                  </span>
+                  <span class="photographer"> shop.mikkeller.dk </span>
                 </figcaption>
               </figure>
               <p>
@@ -1454,7 +1442,7 @@
         </div>
       </section>
       <section
-        class="no-effects part text_align-center  reverse_colors "
+        class="no-effects part text_align-center reverse_colors"
         name="story50"
       >
         <div class="content container-fluid">
@@ -1473,16 +1461,27 @@
                 height="868"
                 data-instgrm-payload-id="instagram-media-payload-0"
                 scrolling="no"
-                style="background: white; max-width: 540px; width: calc(100% - 2px); border-radius: 3px; border: 1px solid rgb(219, 219, 219); box-shadow: none; display: block; margin: 0px 0px 12px; min-width: 326px; padding: 0px;"
+                style="
+                  background: white;
+                  max-width: 540px;
+                  width: calc(100% - 2px);
+                  border-radius: 3px;
+                  border: 1px solid rgb(219, 219, 219);
+                  box-shadow: none;
+                  display: block;
+                  margin: 0px 0px 12px;
+                  min-width: 326px;
+                  padding: 0px;
+                "
               ></iframe>
               <script async="" src="//www.instagram.com/embed.js"></script>
 
               <p><br /></p>
               <p><br /></p>
-              <p style="text-align: center; ">
-                <span style="font-size: 18px;">Made with </span
+              <p style="text-align: center">
+                <span style="font-size: 18px">Made with </span
                 ><a href="http://getmural.io" target="_blank"
-                  ><span style="font-size: 18px;">Mural</span></a
+                  ><span style="font-size: 18px">Mural</span></a
                 >
               </p>
             </div>
